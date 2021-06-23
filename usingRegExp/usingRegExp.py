@@ -30,7 +30,7 @@ with open('usingRegExp/catalog.txt', 'w') as ouf:
 	
 	ouf.write('\n\nEMAIL ADDRESSES:')
 	if len(catalog['emailes']) == 0:
-		ouf.write('\nNo phone numbers or email addresses found.')
+		ouf.write('\nNo email addresses found.')
 	else:
 		for cell in catalog['emailes']:
 			ouf.write('\n' + cell)
