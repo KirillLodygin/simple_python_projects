@@ -20,7 +20,7 @@ for groups in emailRegex.findall(text):
 	else:
 		catalog['emailes'].append(''.join(groups))
 
-with open('catalog.txt', 'w') as ouf:
+with open('usingRegExp/catalog.txt', 'w') as ouf:
 	ouf.write('PHONES:')
 	if len(catalog['phones']) == 0:
 		ouf.write('\nNo phone numbers found.')
