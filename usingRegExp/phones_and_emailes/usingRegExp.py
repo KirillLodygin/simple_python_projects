@@ -1,3 +1,5 @@
+#! python3
+
 import pyperclip
 import re
 
@@ -9,7 +11,7 @@ text = str(pyperclip.paste())
 catalog = {'phones': [],'emailes': []}
 phones, emailes = 0, 0
 
-with open('.\catalog\catalog.txt') as inf:
+with open(r'C:\Users\Kirilll\PycharmProjects\simple_python_projects\usingRegExp\phones_and_emailes\catalog\catalog.txt') as inf:
 	for line in inf:
 		line = line.strip()
 		odj = phoneRegex.search(line)
