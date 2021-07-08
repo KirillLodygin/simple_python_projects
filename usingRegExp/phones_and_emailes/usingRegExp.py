@@ -2,8 +2,14 @@
 
 import pyperclip, re, os
 
-phoneRegex = re.compile(r'(\+7|8)?(\(\d{3}\))?(\d{3})(\s|-|\.)((\d{4})|((\d{2})(\s|-|\.)(\d{2})))')
-emailRegex = re.compile(r'([a-zA-Z0-9._%+-]+)(@)([a-zA-Z0-9.-]+)(\.[a-zA-Z]{2,4})')
+phoneRegex = re.compile(r"""(\+7|8)?
+	(\(\d{3}\))?
+	(\d{3})
+	(\s|-|\.)
+	((\d{4})|((\d{2})(\s|-|\.)(\d{2})))""", re.VERBOSE)
+emailRegex = re.compile(r"""([a-zA-Z0-9._%+-]+)
+	(@)([a-zA-Z0-9.-]+)
+	(\.[a-zA-Z]{2,4})""", re.VERBOSE)
 
 text = str(pyperclip.paste())
 
@@ -40,14 +46,14 @@ for groups in emailRegex.findall(text):
 with open('catalog.txt', 'w') as ouf:
 	ouf.write('PHONES:')
 	if phones == 0:
-		print('\nNo phone numbers found.\n')
+		print('\nNo new phone numbers found.\n')
 	for cell in catalog['phones']:
 		ouf.write('\n' + cell)
 		
 	
 	ouf.write('\n\nEMAIL ADDRESSES:')
 	if emailes == 0:
-		print('No email addresses found.')
+		print('No new email addresses found.')
 	for cell in catalog['emailes']:
 		ouf.write('\n' + cell)
 		
