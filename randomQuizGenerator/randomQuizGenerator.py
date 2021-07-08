@@ -1,6 +1,6 @@
 #! python3
 
-import random
+import random, os
 
 # The quiz data. Keys are states and values are their capitals.
 capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix', 'Arkansas': 'Little Rock',
@@ -17,11 +17,13 @@ capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix', '
             'Vermont': 'Montpelier', 'Virginia': 'Richmond', 'Washington': 'Olympia', 'West Virginia': 'Charleston',
             'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
 
+os.chdir(r'C:\Users\Kirilll\PycharmProjects\simple_python_projects\randomQuizGenerator\exam_tickets')
+
 # Generate 35 quiz files.
 for quizNum in range(35):
 	# Создать файлы билетов и файлы ключей ответов
-	quizFile = open(r'C:\Users\Kirilll\PycharmProjects\simple_python_projects\randomQuizGenerator\exam_tickets\questions\capitalsquiz%s.txt' % (quizNum + 1), 'w')
-	answerKeyFile = open(r'C:\Users\Kirilll\PycharmProjects\simple_python_projects\randomQuizGenerator\exam_tickets\answerKeys\capitalsquiz_answers%s.txt' % (quizNum + 1), 'w')
+	quizFile = open(r'.\questions\capitalsquiz%s.txt' % (quizNum + 1), 'w')
+	answerKeyFile = open(r'.\answerKeys\capitalsquiz_answers%s.txt' % (quizNum + 1), 'w')
 
 	# Записать заголовок билета
 	quizFile.write('Имя:\n\nДата:\n\nКурс:\n\n')
