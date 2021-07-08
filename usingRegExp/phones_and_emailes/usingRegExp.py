@@ -1,7 +1,6 @@
 #! python3
 
-import pyperclip
-import re
+import pyperclip, re, os
 
 phoneRegex = re.compile(r'(\+7|8)?(\(\d{3}\))?(\d{3})(\s|-|\.)((\d{4})|((\d{2})(\s|-|\.)(\d{2})))')
 emailRegex = re.compile(r'([a-zA-Z0-9._%+-]+)(@)([a-zA-Z0-9.-]+)(\.[a-zA-Z]{2,4})')
@@ -11,7 +10,9 @@ text = str(pyperclip.paste())
 catalog = {'phones': [],'emailes': []}
 phones, emailes = 0, 0
 
-with open(r'C:\Users\Kirilll\PycharmProjects\simple_python_projects\usingRegExp\phones_and_emailes\catalog\catalog.txt') as inf:
+os.chdir(r'C:\Users\Kirilll\PycharmProjects\simple_python_projects\usingRegExp\phones_and_emailes\catalog')
+
+with open('catalog.txt') as inf:
 	for line in inf:
 		line = line.strip()
 		odj = phoneRegex.search(line)
@@ -36,7 +37,7 @@ for groups in emailRegex.findall(text):
 		catalog['emailes'].append(''.join(groups))
 		emailes += 1
 
-with open('.\catalog\catalog.txt', 'w') as ouf:
+with open('catalog.txt', 'w') as ouf:
 	ouf.write('PHONES:')
 	if phones == 0:
 		print('\nNo phone numbers found.\n')
