@@ -16,7 +16,7 @@ def backupToZip(folder):
 		if foldername != folder:
 			break
 		for subfolder in subfolders:
-			if subfolder != '.git' and subfolder != '.idea':
+			if subfolder != '.git' and subfolder != '.idea' and subfolder != 'venv':
 				shutil.copytree(folder + '\\' + subfolder, newfolder + '\\' + subfolder)
 	
 	# shutil.copytree(folder, newfolder)
